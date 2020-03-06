@@ -68,12 +68,12 @@ int unittest();
 vs inputF() {
     vs out;
     string sentinal = "00";
+    int count = 0;
 
-    cout << "Input data, terminate input with 00" << endl;
 
     cin >> sentinal;
 
-    while (sentinal != "00") {
+    for(count = 0; count < 3; count++) {
         out.push_back(sentinal);
         cin >> sentinal;
     }
@@ -85,6 +85,16 @@ vs inputF() {
 // Step 3: Create processor function
 
 vs processor(vs input) {
+
+    int count = 0;
+    int end = static_cast<int>(input[2]);
+    cout << "input 3: " << input[2] << endl;
+
+    // for (count=0; count<static_cast<int>(input[2]) ; count++) {
+
+    // }
+    
+
     return input;
 }
 
@@ -118,8 +128,6 @@ vs output(vs input){
 int launch() {
     vs input;
 
-    cout << "launch" << endl;
-    
     input = inputF();
     input = processor(input);
     input = repackager(input);
