@@ -105,7 +105,7 @@ vs output(vs input){
         cout << "No input" << endl;
     } else {
         for (int o = 0; o < input.size(); o++) {
-            cout << input[o] << endl;
+            cout << "The value at index: " << o << " = " << input[o] << endl;
         }
     }
     
