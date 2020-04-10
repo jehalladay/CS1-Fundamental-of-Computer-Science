@@ -1,3 +1,26 @@
+/* ******************************************************************
+* Filename: subs.cpp                                                
+* By. James Halladay                                                
+* Project: week 10 Assignment #3                                    
+* Login: jehalladay                                                 
+* Assignment No: 3                                                  
+* File Description:
+*   
+*	Creates all the functions that main.cpp uses   
+*   
+* I declare that all material in this assessment task is my work    
+* except where there is clear acknowledgement                       
+* or reference to the work of others. I further declare that I      
+* have complied and agreed to the CMU Academic Integrity Policy     
+* at the University website.                                        
+*                                                                   
+* Author�s Name: James Halladay UID(700#): 700425363                
+* Date: 4/9/2020                                                   
+*                                                                   
+* Date Last Modified: 4/9/2020                                     
+******************************************************************* */
+
+
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
@@ -5,7 +28,21 @@
 
 using namespace std;
 
+
 //code and other functions go here
+
+void RequestSeed() {
+	unsigned int seed = 0;
+	cout << "Enter a random seed: ";
+	cin >> seed;
+	srand(seed);
+	cout << endl;
+};
+
+
+
+
+
 
 int GetCardName(int cardNo, char cardName[])
 {
@@ -30,6 +67,7 @@ int GetCardName(int cardNo, char cardName[])
 
 
 
+
 void ShuffleDeck(int deck[])
 {
 	int temp = 0, rn = 0;
@@ -47,6 +85,7 @@ void ShuffleDeck(int deck[])
 		deck[rn] = temp;
 	};
 };
+
 
 
 
@@ -191,7 +230,6 @@ int WhoWins(int hand1[], int player1Score, int hand2[], int player2Score) {
 			};
 		};
 
-
 		// Check for pairs in descending order
 		if (pair == 0) {
 				// if pairs match, compare the next pairs
@@ -201,7 +239,6 @@ int WhoWins(int hand1[], int player1Score, int hand2[], int player2Score) {
 				pair = 2; 
 			};
 		};
-
 
 		// Check for High Card
 		if (high == 0) {
@@ -278,6 +315,48 @@ void DeclareWinner(int hand1[], int hand2[]){
 	if (winner == 0) {
 		cout << "Player 1 and Player 2 Tied!" << endl;
 	} else {
-		cout << "Player " << winner << " Won the Match!";
+		cout << "Player " << winner << " Won the Match!" << endl;
 	};
+};
+
+
+
+
+
+
+void RequestChange(int hand[], int request[]) {
+	string choice = "";
+	for (int i = 0; i < 5; i++){
+		request[i] = 0;
+	};
+
+	cout << "Would you like to change cards?" << endl;
+	
+	for (int i = 0; i < 5; i++){
+		cout << "(Y/n) for Card " << i+1 <<":\t" ; 
+		cin >> choice;
+		if (choice == "y" || choice == "Y") {
+			request[i] = 1;
+		};
+	};
+	cout << endl;
+};
+
+
+
+
+
+
+int ChangeCards(int hand[], int deck[], int request[], int increment) {
+
+	for (int i = 0; i < 5; i++){
+		cout << "request[i]= "<<request[i] << endl;
+		if (request[i] == 1) {
+			increment++;
+			hand[i] = deck[41 - increment];
+			request[i] = 0;
+		};
+	};
+
+	return increment;
 };

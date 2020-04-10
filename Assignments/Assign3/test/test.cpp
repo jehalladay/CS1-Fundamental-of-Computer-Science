@@ -67,3 +67,14 @@ int main(int argc, char* argv[])
     cout << "All test cases passed!" << endl;
     return 0;
 }
+
+
+
+
+ // from main.cpp
+
+	// int i, cardNo, deck[52], hand1[5], hand2[5], change[5], v1, v2, winner;
+	// int player1Score, player2Score, winner;
+	// char cardName[20];
+	// char handtype1[20], handtype2[20];
+	// int cardNo = 0;
